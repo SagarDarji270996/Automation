@@ -1,6 +1,5 @@
 package projects.taskeye.web.pages;
 
-import projects.commonMethods.CompanyPageCommonMethods;
 import projects.commonMethods.EmployeePageCommonMethods;
 import org.openqa.selenium.*;
 

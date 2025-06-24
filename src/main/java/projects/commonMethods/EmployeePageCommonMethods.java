@@ -7,8 +7,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import projects.taskeye.web.locators.AdminPageLocators;
-import projects.taskeye.web.locators.CompanyPageLocators;
 import projects.taskeye.web.locators.EmployeePageLocators;
 
 public class EmployeePageCommonMethods {
