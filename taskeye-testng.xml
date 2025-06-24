@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Taskeye Web Automation Suite" verbose="1">
+    <test name="Regression Test">
+        <classes>
+            <class name="projects.taskeye.tests.CompanyTest"/>
+            <class name="projects.taskeye.tests.ResellerTest"/>
+            <class name="projects.taskeye.tests.AdminTest"/>
+            <class name="projects.taskeye.tests.EmployeeTest"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="listeners.CustomTestListener"/>
+    </listeners>
+</suite>
