@@ -1,187 +1,202 @@
+# Automation Framework
 
-# TASKEYE WEB AUTOMATION
+This project provides a unified automation framework for Web (Selenium) and Mobile (Appium) testing, built with Java, Maven, and TestNG. It follows the Page Object Model (POM) design pattern and supports environment-specific configurations.
 
-This project is a Test Automation Framework for the Taskeye web application. The framework utilizes Java, Selenium, and TestNG for automating test cases, and Allure Reports for reporting test results.
+## Table of Contents
+1. [Prerequisites](#prerequisites)
+2. [Project Structure](#project-structure)
+3. [Configuration Management](#configuration-management)
+    - [Environments](#environments)
+    - [User Types](#user-types)
+    - [Headless Mode](#headless-mode)
+4. [Running Tests](#running-tests)
+    - [Via Maven (Terminal)](#via-maven-terminal)
+    - [Via TestNG Suite (IDE)](#via-testng-suite-ide)
+    - [Via Jenkins](#via-jenkins)
+5. [Page Object Model (POM)](#page-object-model-pom)
+6. [Adding New Tests](#adding-new-tests)
+7. [Troubleshooting](#troubleshooting)
+
+## Prerequisites
+
+*   Java JDK (version 1.8 or higher recommended)
+*   Apache Maven
+*   Web Browsers (Chrome, Firefox, Edge) and their corresponding WebDrivers.
+    *   Ensure WebDrivers are in your system's PATH or specify their location (see `BasePage.java`).
+*   For Mobile Testing:
+    *   Appium Server (version 2.x recommended)
+    *   Android SDK (for Android testing) with configured Emulators or connected real devices.
+    *   Xcode (for iOS testing) with configured Simulators or connected real devices.
+    *   Appium drivers for specific platforms (e.g., `appium-uiautomator2-driver`, `appium-xcuitest-driver`). Install via `appium driver install <driverName>`.
+*   An IDE (IntelliJ IDEA, Eclipse, etc.) is recommended for development.
 
 ## Project Structure
 
-The project follows a modular structure for better maintainability and scalability. Below is an overview of the project structure:
-
-```bash
-
-UffizioAutomation/
-├── .idea/
-├── extent-reports/
+```
+automation-framework/
+├── pom.xml                 # Maven project configuration, dependencies
+├── Jenkinsfile             # Jenkins CI/CD pipeline definition
+├── README.md               # This file
 ├── src/
 │   ├── main/
 │   │   ├── java/
-│   │   │   ├── base/
-│   │   │   │   ├── TestBase.java
-│   │   │   ├── common/
-│   │   │   │   ├── CommonMethods.java
-│   │   │   │   ├── DatePickerUtils.java
-│   │   │   │   ├── IframesOfApplication.java
-│   │   │   │   ├── MobileActions.java
-│   │   │   │   ├── MobileBrowserWait.java
-│   │   │   │   ├── Utils.java
-│   │   │   │   ├── WaitUtils.java
-│   │   │   ├── config/
-│   │   │   │   ├── ConfigLoader.java
-│   │   │   ├── drivers/
-│   │   │   │   ├── chromedriver
-│   │   │   ├── apps/
-│   │   │   │   ├── taskeye-debug.apk
-│   │   │   ├── projects/
-│   │   │   │   ├── taskeye/
-│   │   │   │   │   ├── mobile/
-│   │   │   │   │   │   ├── locators/
-│   │   │   │   │   │   │   ├── MobileLoginPageLocators.java
-│   │   │   │   │   │   ├── pages/
-│   │   │   │   │   │       ├── MobileLoginPage.java
-│   │   │   │   │   ├── web/
-│   │   │   │   │       ├── locators/
-│   │   │   │   │       │   ├── AdminPageLocators.java
-│   │   │   │   │       ├── pages/
-│   │   │   │   │           ├── AdminPage.java
-│   │   │   │   ├── trakzee/
-│   │   │   │   │   ├── web/
-│   │   │   │   │       ├── locators/
-│   │   │   │   │       │   ├── HomePageLocators.java
-│   │   │   │   │       ├── pages/
-│   │   │   │   │           ├── HomePage.java
-│   │   │   │   ├── smartbus/
-│   │   │   │       ├── web/
-│   │   │   │           ├── locators/
-│   │   │   │           │   ├── LoginPageLocators.java
-│   │   │   │           ├── pages/
-│   │   │   │               ├── LoginPage.java
-│   │   ├── resources/
-│       ├── config.properties
-├── src/
-│   ├── test/
-│   │   ├── java/
-│   │   │   ├── listeners/
-│   │   │   │   ├── CustomTestListener.java
-│   │   │   ├── projects/
-│   │   │       ├── taskeye/
-│   │   │       │   ├── tests/
-│   │   │       │       ├── AdminTest.java
-│   │   │       ├── trakzee/
-│   │   │       │   ├── tests/
-│   │   │       │       │   ├── LoginTest.java
-│   │   │       ├── smartbus/
-│   │   │           ├── tests/
-│   │   │               ├── LoginTest.java
-├── target/
-├── pom.xml
-├── README.md
-├── smartbus-testng.xml
-├── taskeye-testng.xml
-├── trakzee-testng.xml
+│   │   │   └── com/example/
+│   │   │       ├── config/         # Configuration loading classes (ConfigLoader.java)
+│   │   │       ├── pages/
+│   │   │       │   ├── mobile/     # Mobile page objects (BasePageMobile.java, MobileLoginPage.java)
+│   │   │       │   └── web/        # Web page objects (BasePage.java, LoginPage.java)
+│   │   │       └── utils/          # Utility classes
+│   │   └── resources/
+│   │       └── config/             # Environment and user properties files
+│   │           ├── qa.properties
+│   │           ├── demo.properties
+│   │           ├── prod.properties
+│   │           └── users.properties
+│   └── test/
+│       ├── java/
+│       │   └── com/example/
+│       │       └── tests/
+│       │           ├── mobile/     # Mobile test classes (MobileLoginTests.java)
+│       │           └── web/        # Web test classes (WebLoginTests.java)
+│       └── resources/
+│           ├── apps/               # Placeholder for mobile app binaries (.apk, .app)
+│           │   └── android/
+│           │       └── AndroidDemoApp.apk
+│           └── testng.xml          # TestNG suite configuration
+└── target/                     # Build output directory (generated by Maven)
+```
 
+## Configuration Management
 
+Configurations are managed through properties files located in `src/main/resources/config/`. The `ConfigLoader.java` class handles loading the appropriate properties.
+
+### Environments
+The framework supports multiple test environments (e.g., QA, DEMO, PROD).
+*   `qa.properties`
+*   `demo.properties`
+*   `prod.properties`
+
+The active environment is determined by:
+1.  System Property: `-Denv=<environment_name>` (e.g., `-Denv=demo`)
+2.  Environment Variable: `ENV=<environment_name>` (e.g., `export ENV=demo`)
+3.  Default: `qa` (if neither is set)
+
+Each environment file contains specific settings like `baseUrl`, `apiBaseUrl`, `dbHost`, `headlessMode`, and mobile-specific capabilities.
+
+### User Types
+User credentials for different roles (SuperAdmin, Admin, Reseller, Company) are stored in `users.properties`.
+The `ConfigLoader` provides methods like `getUsername("UserType")` and `getPassword("UserType")` to retrieve them.
+
+### Headless Mode
+For web tests, headless execution can be enabled/disabled via the `headlessMode` property in the environment-specific configuration files (e.g., `qa.properties`).
+*   `headlessMode=true` enables headless execution.
+*   `headlessMode=false` runs tests in a visible browser.
+
+## Running Tests
+
+### Via Maven (Terminal)
+
+You can run tests using Maven from the terminal. The `testng.xml` suite is typically used by default by the Surefire plugin.
+
+**1. Run all tests defined in `testng.xml` for a specific environment:**
+```bash
+# Example for QA environment
+mvn clean test -Denv=qa
+
+# Example for DEMO environment
+mvn clean test -Denv=demo
+```
+
+**2. Run specific web tests with a specific browser:**
+```bash
+# Run WebLoginTests on Chrome in QA environment
+mvn clean test -Denv=qa -Dbrowser=chrome -Dtest=WebLoginTests
+
+# Run WebLoginTests on Firefox in DEMO environment
+mvn clean test -Denv=demo -Dbrowser=firefox -Dtest=WebLoginTests
+```
+The `-Dtest` parameter can take specific class names or use wildcards (e.g., `com.example.tests.web.WebLoginTests#testSuccessfulLoginSuperAdmin` for a single method).
+The `-Dbrowser` parameter is used by `WebLoginTests` (via `@Parameters`) and `BasePage` to select the browser.
+
+**3. Run specific mobile tests:**
+Ensure Appium server is running.
+```bash
+# Run MobileLoginTests on Android in QA environment (using app path from qa.properties)
+mvn clean test -Denv=qa -Dmobile.platformName=Android -Dtest=MobileLoginTests
+
+# Override app path or device via system properties if needed:
+mvn clean test -Denv=qa -Dmobile.platformName=Android -Dmobile.deviceName="YourDeviceName" -Dmobile.appPath="/path/to/your/app.apk" -Dtest=MobileLoginTests
+```
+Parameters like `mobile.platformName`, `mobile.deviceName`, `mobile.appPath`, and `appium.server.url` can be passed to influence the Appium driver setup.
+
+**4. To use a different TestNG suite file:**
+```bash
+mvn clean test -Dsurefire.suiteXmlFiles=path/to/your/custom-testng.xml
+```
+
+### Via TestNG Suite (IDE)
+
+You can run tests directly from your IDE (IntelliJ, Eclipse) by right-clicking on:
+*   `testng.xml` to run the entire suite.
+*   A specific test class (e.g., `WebLoginTests.java`) to run all tests in that class.
+*   A specific test method within a class.
+
+Ensure your IDE's TestNG plugin is configured. You might need to set environment variables or JVM options (like `-Denv=qa`) in your IDE's run configuration.
+
+### Via Jenkins
+
+The `Jenkinsfile` in the root directory defines a pipeline for CI/CD.
+It supports parameters for `TEST_ENV`, `BROWSER`, and `MOBILE_PLATFORM`.
+The pipeline will:
+1.  Checkout code.
+2.  Build the project (`mvn clean install -DskipTests`).
+3.  Run Web Tests (e.g., `mvn test -Denv=qa -Dbrowser=chrome ...`).
+4.  Run Mobile Tests (e.g., `mvn test -Denv=qa -Dmobile.platformName=Android ...`).
+
+Refer to the `Jenkinsfile` for more details on stages and commands.
+
+## Page Object Model (POM)
+
+The framework uses the Page Object Model design pattern:
+*   **Base Classes**:
+    *   `src/main/java/com/example/pages/web/BasePage.java`: Common functionalities for web pages (WebDriver setup, basic interactions, waits).
+    *   `src/main/java/com/example/pages/mobile/BasePageMobile.java`: Common functionalities for mobile screens (AppiumDriver setup, capabilities, basic interactions).
+*   **Page Objects**:
+    *   Located in `src/main/java/com/example/pages/web/` for web.
+    *   Located in `src/main/java/com/example/pages/mobile/` for mobile.
+    *   Each class represents a page/screen and contains its elements (WebElements identified by `@FindBy`, `@AndroidFindBy`, `@iOSXCUITFindBy`) and methods to interact with them.
+    *   Example: `LoginPage.java`, `MobileLoginPage.java`.
+
+## Adding New Tests
+
+**1. Create Page Objects:**
+   *   For new web pages or mobile screens, create corresponding Java classes in the `com.example.pages.web` or `com.example.pages.mobile` package.
+   *   These classes should extend `BasePage` or `BasePageMobile`.
+   *   Define WebElements using `@FindBy` (for web) or `@AndroidFindBy`/`@iOSXCUITFindBy` (for mobile).
+   *   Implement methods that represent user interactions on that page/screen.
+
+**2. Create Test Classes:**
+   *   Create new TestNG test classes in `src/test/java/com/example/tests/web/` or `src/test/java/com/example/tests/mobile/`.
+   *   Use TestNG annotations (`@BeforeClass`, `@BeforeMethod`, `@Test`, `@AfterMethod`, `@AfterClass`).
+   *   In setup methods (`@BeforeMethod` or `@BeforeClass`), initialize your page objects and WebDriver/AppiumDriver.
+   *   Write test methods (`@Test`) that use page object methods to perform actions and TestNG assertions (`Assert.*`) to verify outcomes.
+   *   Ensure proper driver teardown in `@AfterMethod` or `@AfterClass`.
+
+**3. Update TestNG Suite (Optional):**
+   *   If you want to include new test classes in the main `testng.xml` suite, add them under the appropriate `<test>` tag.
+
+## Troubleshooting
+*   **WebDriver not found**: Ensure your ChromeDriver, GeckoDriver (for Firefox), or EdgeDriver is in your system PATH or its location is set via `System.setProperty("webdriver.chrome.driver", "/path/to/driver");` in `BasePage.java` or before driver initialization.
+*   **Appium Connection Issues**:
+    *   Verify Appium server is running and accessible at the URL specified in `mobile.<env>.properties` or passed as a parameter.
+    *   Check that the correct Appium drivers (UIAutomator2, XCUITest) are installed.
+    *   Ensure emulators/simulators are running or real devices are connected and recognized by Appium.
+*   **Element Not Found**:
+    *   Double-check locators in your Page Object classes.
+    *   Ensure appropriate waits (explicit/implicit) are used, especially for dynamic content.
+    *   The `BasePage` and `BasePageMobile` include helper methods like `waitForVisibility` and `waitForClickability`.
+*   **Configuration Not Loaded**:
+    *   Verify the `-Denv=<environment>` system property is correctly set when running tests.
+    *   Check that properties files (`qa.properties`, `users.properties`, etc.) are present in `src/main/resources/config/` and correctly formatted.
 
 ```
-## Technology Stack
-
-- Programming Language: Java
-
-- Automation Tools: Selenium, TestNG
-
-- Reporting Tool: Allure Reports
-
-- Build Tool: Maven
-
-- Browser Support: Chrome (configurable)
-
-
-## Pre-requisites
-
-  1. Java Development Kit (JDK): Version 11 or higher.
-
-  2. Maven: Ensure Maven is installed and configured in your system.
-
-  3. Google Chrome and ChromeDriver (compatible version).
-
-  4. Allure CLI: Install Allure for generating reports.
-
-To install Allure:
-
-- Linux (Ubuntu):
-
-      sudo apt-add-repository ppa:qameta/allure
-      sudo apt-get update
-      sudo apt-get install allure
-  
-- Verify Installation:
-
-      allure --version
-    
-5. TestNG Plugin: Install TestNG for IDE (Eclipse/IntelliJ) for easier execution.
-  
-
-## Configuration Setup
-
-- Update the config.properties file located at:
-
-      src/test/java/resources/config.properties
-
-- Sample config.properties:
-
-      superAdminUserName=admin
-      superAdminPassword=Test@123
-      websiteUrl=https://example.com/admin
-
-
-## Test Execution
-
-You can execute the test cases via Maven commands or directly from the IDE.
-
-### 1. Execute All Test Cases
-Run the following Maven command to execute all test cases:
-
-      mvn clean test
-
-### 2. Execute a Specific Test Class
-To run a specific test class (e.g., AdminTest.java):
-
-      mvn clean test -Dtest=AdminTest
-
-### 3. Execute a Specific Test Method
-To execute a single test method (e.g., testCreateAdminSuccessfully), use:
-
-      mvn clean test -Dtest=AdminTest#testCreateAdminSuccessfully
-
-
-## Generating Allure Reports
-
-### Step 1: Execute Test Cases
-Before generating reports, ensure the tests are executed using Maven:
-      
-      mvn clean test
-
-### Step 2: Generate Allure Report
-Run the following command to generate the Allure report:
-
-      allure generate target/allure-results --clean -o allure-report
-
-- target/allure-results - Contains the raw test results after execution.
-- allure-report - Directory where the generated HTML report will be stored.
-
-### Step 3: Serve Allure Report
-To view the report in your browser:
-
-      allure serve target/allure-results
-This command will launch the report on a local server and open it in the default web browser.
-
-## Additional Notes
-
-### 1. Screenshots:
-Screenshots for failed tests will be saved in the screenshots folder under the project root.
-
-### 2. Listeners:
-The project uses a custom TestNG listener (CustomTestListener) to capture test lifecycle events and attach screenshots for failed tests.
-
-### 3. Allure Integration:
-Annotations like @Feature, @Story, and @Description are used in test classes for enhanced reporting in Allure.
-
