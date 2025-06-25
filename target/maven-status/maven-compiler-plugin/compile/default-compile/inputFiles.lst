@@ -1,0 +1,4 @@
+/app/src/main/java/com/example/App.java
+/app/src/main/java/com/example/config/ConfigLoader.java
+/app/src/main/java/com/example/pages/web/BasePage.java
+/app/src/main/java/com/example/pages/web/LoginPage.java

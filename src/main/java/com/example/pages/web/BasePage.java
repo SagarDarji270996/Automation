@@ -56,6 +56,9 @@ public class BasePage {
             case "chrome":
             default:
                 ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--no-sandbox"); // Often required in CI environments
+                chromeOptions.addArguments("--disable-dev-shm-usage"); // Overcome limited resource problems
+                chromeOptions.addArguments("--disable-features=VizDisplayCompositor"); // Helps in some CI/headless scenarios
                 if (headless) {
                     chromeOptions.addArguments("--headless");
                     chromeOptions.addArguments("--disable-gpu"); // Recommended for headless Chrome
@@ -65,8 +68,8 @@ public class BasePage {
                 this.driver = new ChromeDriver(chromeOptions);
                 break;
         }
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(configLoader.getProperty("defaultWaitTimeout", "10"))));
-        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(configLoader.getProperty("implicitWaitTimeout", "5"))));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(configLoader.getProperty("defaultWaitTimeout"))));
+        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(configLoader.getProperty("implicitWaitTimeout"))));
         this.driver.manage().window().maximize();
     }
 

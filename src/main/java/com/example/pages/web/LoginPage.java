@@ -66,7 +66,7 @@ public class LoginPage extends BasePage {
             // Initialize driver if not already done.
             // This might be better handled in a test setup method.
             // For simplicity here, let's assume a default browser from config if not set.
-            String browser = configLoader.getProperty("defaultBrowser", "chrome");
+            String browser = configLoader.getProperty("defaultBrowser");
             super.setupDriver(browser); // Calls initializeWebDriver from BasePage
         }
         navigateTo(configLoader.getBaseUrl() + "/login"); // Example login path
