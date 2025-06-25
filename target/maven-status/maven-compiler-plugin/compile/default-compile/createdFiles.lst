@@ -1,0 +1,6 @@
+com/example/pages/mobile/BasePageMobile.class
+com/example/App.class
+com/example/pages/web/LoginPage.class
+com/example/pages/web/BasePage.class
+com/example/config/ConfigLoader.class
+com/example/pages/mobile/MobileLoginPage.class

@@ -65,8 +65,8 @@ public class BasePage {
                 this.driver = new ChromeDriver(chromeOptions);
                 break;
         }
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(configLoader.getProperty("defaultWaitTimeout", "10"))));
-        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(configLoader.getProperty("implicitWaitTimeout", "5"))));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(configLoader.getProperty("defaultWaitTimeout"))));
+        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(configLoader.getProperty("implicitWaitTimeout"))));
         this.driver.manage().window().maximize();
     }
 

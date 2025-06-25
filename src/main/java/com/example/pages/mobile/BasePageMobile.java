@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.time.Duration;
 
@@ -36,7 +38,7 @@ public class BasePageMobile {
         capabilities.setCapability("platformName", platformName); // e.g., "Android", "iOS"
         capabilities.setCapability("deviceName", deviceName);     // e.g., "Android Emulator", "iPhone Simulator"
         // capabilities.setCapability("udid", configLoader.getProperty("mobile.udid")); // Optional: if specific device
-        capabilities.setCapability("automationName", configLoader.getProperty("mobile.automationName", "UiAutomator2")); // Or "XCUITest" for iOS
+        capabilities.setCapability("automationName", configLoader.getProperty("mobile.automationName")); // Or "XCUITest" for iOS
 
         if (appPathOrPackage.endsWith(".apk") || appPathOrPackage.endsWith(".app") || appPathOrPackage.endsWith(".zip")) {
             capabilities.setCapability("app", appPathOrPackage); // Path to app
@@ -45,24 +47,24 @@ public class BasePageMobile {
             capabilities.setCapability("appActivity", configLoader.getProperty("mobile.appActivity")); // e.g., ".MainActivity"
         }
 
-        capabilities.setCapability("noReset", Boolean.parseBoolean(configLoader.getProperty("mobile.noReset", "false")));
-        capabilities.setCapability("fullReset", Boolean.parseBoolean(configLoader.getProperty("mobile.fullReset", "false")));
+        capabilities.setCapability("noReset", Boolean.parseBoolean(configLoader.getProperty("mobile.noReset")));
+        capabilities.setCapability("fullReset", Boolean.parseBoolean(configLoader.getProperty("mobile.fullReset")));
 
         // Add any other desired capabilities from config
         // Example: capabilities.setCapability("someOtherCapability", configLoader.getProperty("mobile.someOtherCapability"));
 
         try {
-            this.driver = new AppiumDriver(new URL(appiumServerUrl), capabilities);
-        } catch (MalformedURLException e) {
-            System.err.println("Error creating Appium driver session: Invalid Appium server URL");
+            this.driver = new AppiumDriver(new URI(appiumServerUrl).toURL(), capabilities);
+        } catch (MalformedURLException | URISyntaxException e) {
+            System.err.println("Error creating Appium driver session: Invalid Appium server URL: " + appiumServerUrl);
             e.printStackTrace();
             throw new RuntimeException("Failed to initialize Appium driver", e);
         }
 
-        long defaultWait = Long.parseLong(configLoader.getProperty("mobile.defaultWaitTimeout", "20"));
+        long defaultWait = Long.parseLong(configLoader.getProperty("mobile.defaultWaitTimeout"));
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(defaultWait));
         // Implicit wait can also be set if desired, but explicit waits are generally preferred
-        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(configLoader.getProperty("mobile.implicitWaitTimeout", "10"))));
+        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(configLoader.getProperty("mobile.implicitWaitTimeout"))));
     }
 
     // Call this method in your test setup
