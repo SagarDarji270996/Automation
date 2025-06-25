@@ -56,6 +56,9 @@ public class BasePage {
             case "chrome":
             default:
                 ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--no-sandbox"); // Often required in CI environments
+                chromeOptions.addArguments("--disable-dev-shm-usage"); // Overcome limited resource problems
+                chromeOptions.addArguments("--disable-features=VizDisplayCompositor"); // Helps in some CI/headless scenarios
                 if (headless) {
                     chromeOptions.addArguments("--headless");
                     chromeOptions.addArguments("--disable-gpu"); // Recommended for headless Chrome

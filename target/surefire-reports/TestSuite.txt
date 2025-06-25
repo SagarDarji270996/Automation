@@ -1,0 +1,26 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 15, Failures: 2, Errors: 0, Skipped: 13, Time elapsed: 1.635 s <<< FAILURE! - in TestSuite
+com.example.tests.web.WebLoginTests.setupTest  Time elapsed: 1.437 s  <<< FAILURE!
+org.openqa.selenium.SessionNotCreatedException:
+Could not start a new session. Response code 500. Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Host info: host: 'devbox', ip: '192.168.0.2'
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [], binary: /home/jules/.cache/selenium..., extensions: []}}]}]
+	at com.example.tests.web.WebLoginTests.setupTest(WebLoginTests.java:28)
+
+com.example.tests.mobile.MobileLoginTests.setupTest  Time elapsed: 0.031 s  <<< FAILURE!
+org.openqa.selenium.SessionNotCreatedException:
+Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Host info: host: 'devbox', ip: '192.168.0.2'
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0', java.version: '21.0.7'
+Driver info: io.appium.java_client.AppiumDriver
+Command: [null, newSession {capabilities=[Capabilities {appPackage: src/test/resources/apps/and..., automationName: UiAutomator2 # For Android, deviceName: Android Emulator, fullReset: false, noReset: true, platformName: ANDROID}]}]
+Capabilities {appPackage: src/test/resources/apps/and..., automationName: UiAutomator2 # For Android, deviceName: Android Emulator, fullReset: false, noReset: true, platformName: ANDROID}
+	at com.example.tests.mobile.MobileLoginTests.setupTest(MobileLoginTests.java:53)
+Caused by: java.lang.IllegalArgumentException: Illegal key values seen in w3c capabilities: [appPackage, automationName, deviceName, fullReset, noReset]
+	at com.example.tests.mobile.MobileLoginTests.setupTest(MobileLoginTests.java:53)

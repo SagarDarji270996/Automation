@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="1.635" tests="15" errors="0" skipped="13" failures="2">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/app/target/test-classes:/app/target/classes:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-java/4.21.0/selenium-java-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-api/4.21.0/selenium-api-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/4.21.0/selenium-chrome-driver-4.21.0.jar:/home/jules/.m2/repository/com/google/auto/service/auto-service-annotations/1.1.1/auto-service-annotations-1.1.1.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-chromium-driver/4.21.0/selenium-chromium-driver-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-json/4.21.0/selenium-json-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-manager/4.21.0/selenium-manager-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v123/4.21.0/selenium-devtools-v123-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v124/4.21.0/selenium-devtools-v124-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v125/4.21.0/selenium-devtools-v125-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v85/4.21.0/selenium-devtools-v85-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/4.21.0/selenium-edge-driver-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/4.21.0/selenium-firefox-driver-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-http/4.21.0/selenium-http-4.21.0.jar:/home/jules/.m2/repository/dev/failsafe/failsafe/3.3.2/failsafe-3.3.2.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/4.21.0/selenium-ie-driver-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/4.21.0/selenium-remote-driver-4.21.0.jar:/home/jules/.m2/repository/com/google/guava/guava/33.2.0-jre/guava-33.2.0-jre.jar:/home/jules/.m2/repository/com/google/guava/failureaccess/1.0.2/failureaccess-1.0.2.jar:/home/jules/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/jules/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/jules/.m2/repository/org/checkerframework/checker-qual/3.42.0/checker-qual-3.42.0.jar:/home/jules/.m2/repository/com/google/j2objc/j2objc-annotations/3.0.0/j2objc-annotations-3.0.0.jar:/home/jules/.m2/repository/io/opentelemetry/semconv/opentelemetry-semconv/1.25.0-alpha/opentelemetry-semconv-1.25.0-alpha.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-api/1.38.0/opentelemetry-api-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-context/1.38.0/opentelemetry-context-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-exporter-logging/1.38.0/opentelemetry-exporter-logging-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-sdk-common/1.38.0/opentelemetry-sdk-common-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-sdk-extension-autoconfigure-spi/1.38.0/opentelemetry-sdk-extension-autoconfigure-spi-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-sdk-extension-autoconfigure/1.38.0/opentelemetry-sdk-extension-autoconfigure-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-api-incubator/1.38.0-alpha/opentelemetry-api-incubator-1.38.0-alpha.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-sdk-trace/1.38.0/opentelemetry-sdk-trace-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-sdk/1.38.0/opentelemetry-sdk-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-sdk-metrics/1.38.0/opentelemetry-sdk-metrics-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-sdk-logs/1.38.0/opentelemetry-sdk-logs-1.38.0.jar:/home/jules/.m2/repository/net/bytebuddy/byte-buddy/1.14.15/byte-buddy-1.14.15.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-os/4.21.0/selenium-os-4.21.0.jar:/home/jules/.m2/repository/org/apache/commons/commons-exec/1.4.0/commons-exec-1.4.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/4.21.0/selenium-safari-driver-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-support/4.21.0/selenium-support-4.21.0.jar:/home/jules/.m2/repository/org/testng/testng/7.10.2/testng-7.10.2.jar:/home/jules/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/home/jules/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar:/home/jules/.m2/repository/io/appium/java-client/9.3.0/java-client-9.3.0.jar:/home/jules/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/home/jules/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/home/jules/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/home/jules/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar:"/>
+    <property name="java.vm.vendor" value="Ubuntu"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://ubuntu.com/"/>
+    <property name="user.timezone" value="Etc/UTC"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-21-openjdk-amd64/lib"/>
+    <property name="sun.java.command" value="/app/target/surefire/surefirebooter16311248489555094301.jar /app/target/surefire 2025-06-25T05-21-10_499-jvmRun1 surefire9198196718766152895tmp surefire_015959390234907949240tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/app/target/test-classes:/app/target/classes:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-java/4.21.0/selenium-java-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-api/4.21.0/selenium-api-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/4.21.0/selenium-chrome-driver-4.21.0.jar:/home/jules/.m2/repository/com/google/auto/service/auto-service-annotations/1.1.1/auto-service-annotations-1.1.1.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-chromium-driver/4.21.0/selenium-chromium-driver-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-json/4.21.0/selenium-json-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-manager/4.21.0/selenium-manager-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v123/4.21.0/selenium-devtools-v123-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v124/4.21.0/selenium-devtools-v124-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v125/4.21.0/selenium-devtools-v125-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-devtools-v85/4.21.0/selenium-devtools-v85-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/4.21.0/selenium-edge-driver-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/4.21.0/selenium-firefox-driver-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-http/4.21.0/selenium-http-4.21.0.jar:/home/jules/.m2/repository/dev/failsafe/failsafe/3.3.2/failsafe-3.3.2.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/4.21.0/selenium-ie-driver-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/4.21.0/selenium-remote-driver-4.21.0.jar:/home/jules/.m2/repository/com/google/guava/guava/33.2.0-jre/guava-33.2.0-jre.jar:/home/jules/.m2/repository/com/google/guava/failureaccess/1.0.2/failureaccess-1.0.2.jar:/home/jules/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/jules/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/jules/.m2/repository/org/checkerframework/checker-qual/3.42.0/checker-qual-3.42.0.jar:/home/jules/.m2/repository/com/google/j2objc/j2objc-annotations/3.0.0/j2objc-annotations-3.0.0.jar:/home/jules/.m2/repository/io/opentelemetry/semconv/opentelemetry-semconv/1.25.0-alpha/opentelemetry-semconv-1.25.0-alpha.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-api/1.38.0/opentelemetry-api-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-context/1.38.0/opentelemetry-context-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-exporter-logging/1.38.0/opentelemetry-exporter-logging-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-sdk-common/1.38.0/opentelemetry-sdk-common-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-sdk-extension-autoconfigure-spi/1.38.0/opentelemetry-sdk-extension-autoconfigure-spi-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-sdk-extension-autoconfigure/1.38.0/opentelemetry-sdk-extension-autoconfigure-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-api-incubator/1.38.0-alpha/opentelemetry-api-incubator-1.38.0-alpha.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-sdk-trace/1.38.0/opentelemetry-sdk-trace-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-sdk/1.38.0/opentelemetry-sdk-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-sdk-metrics/1.38.0/opentelemetry-sdk-metrics-1.38.0.jar:/home/jules/.m2/repository/io/opentelemetry/opentelemetry-sdk-logs/1.38.0/opentelemetry-sdk-logs-1.38.0.jar:/home/jules/.m2/repository/net/bytebuddy/byte-buddy/1.14.15/byte-buddy-1.14.15.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-os/4.21.0/selenium-os-4.21.0.jar:/home/jules/.m2/repository/org/apache/commons/commons-exec/1.4.0/commons-exec-1.4.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/4.21.0/selenium-safari-driver-4.21.0.jar:/home/jules/.m2/repository/org/seleniumhq/selenium/selenium-support/4.21.0/selenium-support-4.21.0.jar:/home/jules/.m2/repository/org/testng/testng/7.10.2/testng-7.10.2.jar:/home/jules/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/home/jules/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar:/home/jules/.m2/repository/io/appium/java-client/9.3.0/java-client-9.3.0.jar:/home/jules/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/home/jules/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/home/jules/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/home/jules/.m2/repository/org/slf4j/slf4j-simple/2.0.13/slf4j-simple-2.0.13.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/jules"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-04-15"/>
+    <property name="java.home" value="/usr/lib/jvm/java-21-openjdk-amd64"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/app"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="/app/target/surefire/surefirebooter16311248489555094301.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.7+6-Ubuntu-0ubuntu124.04"/>
+    <property name="user.name" value="jules"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="6.8.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/home/jules/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://bugs.launchpad.net/ubuntu/+source/openjdk-21"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="21.0.7"/>
+    <property name="user.dir" value="/app"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Ubuntu"/>
+    <property name="java.vm.version" value="21.0.7+6-Ubuntu-0ubuntu124.04"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="setupTest" classname="com.example.tests.web.WebLoginTests" time="1.437">
+    <failure message="Could not start a new session. Response code 500. Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don&apos;t use --user-data-dir &#10;Host info: host: &apos;devbox&apos;, ip: &apos;192.168.0.2&apos;&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.8.0&apos;, java.version: &apos;21.0.7&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [], binary: /home/jules/.cache/selenium..., extensions: []}}]}]" type="org.openqa.selenium.SessionNotCreatedException"><![CDATA[org.openqa.selenium.SessionNotCreatedException:
+Could not start a new session. Response code 500. Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Host info: host: 'devbox', ip: '192.168.0.2'
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [], binary: /home/jules/.cache/selenium..., extensions: []}}]}]
+	at com.example.tests.web.WebLoginTests.setupTest(WebLoginTests.java:28)
+]]></failure>
+    <system-out><![CDATA[Loaded properties for environment: qa
+Loaded user properties from: config/users.properties
+Loaded properties for environment: qa
+Loaded user properties from: config/users.properties
+]]></system-out>
+    <system-err><![CDATA[Jun 25, 2025 5:21:11 AM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (137.0.7151.70) detected in PATH at /home/jules/.nvm/versions/node/v22.16.0/bin/chromedriver might not be compatible with the detected chrome version (138.0.7204.49); currently, chromedriver 138.0.7204.49 is recommended for chrome 138.*, so it is advised to delete the driver in PATH and retry
+]]></system-err>
+  </testcase>
+  <testcase name="setupTest" classname="com.example.tests.web.WebLoginTests" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="setupTest" classname="com.example.tests.web.WebLoginTests" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="testInvalidLogin" classname="com.example.tests.web.WebLoginTests" time="0">
+    <skipped message="Could not start a new session. Response code 500. Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don&apos;t use --user-data-dir &#10;Host info: host: &apos;devbox&apos;, ip: &apos;192.168.0.2&apos;&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.8.0&apos;, java.version: &apos;21.0.7&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [], binary: /home/jules/.cache/selenium..., extensions: []}}]}]"/>
+  </testcase>
+  <testcase name="teardownTest" classname="com.example.tests.web.WebLoginTests" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="teardownTest" classname="com.example.tests.web.WebLoginTests" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="teardownTest" classname="com.example.tests.web.WebLoginTests" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="testSuccessfulLoginAdmin" classname="com.example.tests.web.WebLoginTests" time="0">
+    <skipped message="Could not start a new session. Response code 500. Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don&apos;t use --user-data-dir &#10;Host info: host: &apos;devbox&apos;, ip: &apos;192.168.0.2&apos;&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.8.0&apos;, java.version: &apos;21.0.7&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [], binary: /home/jules/.cache/selenium..., extensions: []}}]}]"/>
+  </testcase>
+  <testcase name="testSuccessfulLoginSuperAdmin" classname="com.example.tests.web.WebLoginTests" time="0">
+    <skipped message="Could not start a new session. Response code 500. Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don&apos;t use --user-data-dir &#10;Host info: host: &apos;devbox&apos;, ip: &apos;192.168.0.2&apos;&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.8.0&apos;, java.version: &apos;21.0.7&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [], binary: /home/jules/.cache/selenium..., extensions: []}}]}]"/>
+  </testcase>
+  <testcase name="setupTest" classname="com.example.tests.mobile.MobileLoginTests" time="0.031">
+    <failure message="Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. &#10;Host info: host: &apos;devbox&apos;, ip: &apos;192.168.0.2&apos;&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.8.0&apos;, java.version: &apos;21.0.7&apos;&#10;Driver info: io.appium.java_client.AppiumDriver&#10;Command: [null, newSession {capabilities=[Capabilities {appPackage: src/test/resources/apps/and..., automationName: UiAutomator2 # For Android, deviceName: Android Emulator, fullReset: false, noReset: true, platformName: ANDROID}]}]&#10;Capabilities {appPackage: src/test/resources/apps/and..., automationName: UiAutomator2 # For Android, deviceName: Android Emulator, fullReset: false, noReset: true, platformName: ANDROID}" type="org.openqa.selenium.SessionNotCreatedException"><![CDATA[org.openqa.selenium.SessionNotCreatedException:
+Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Host info: host: 'devbox', ip: '192.168.0.2'
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0', java.version: '21.0.7'
+Driver info: io.appium.java_client.AppiumDriver
+Command: [null, newSession {capabilities=[Capabilities {appPackage: src/test/resources/apps/and..., automationName: UiAutomator2 # For Android, deviceName: Android Emulator, fullReset: false, noReset: true, platformName: ANDROID}]}]
+Capabilities {appPackage: src/test/resources/apps/and..., automationName: UiAutomator2 # For Android, deviceName: Android Emulator, fullReset: false, noReset: true, platformName: ANDROID}
+	at com.example.tests.mobile.MobileLoginTests.setupTest(MobileLoginTests.java:53)
+Caused by: java.lang.IllegalArgumentException: Illegal key values seen in w3c capabilities: [appPackage, automationName, deviceName, fullReset, noReset]
+	at com.example.tests.mobile.MobileLoginTests.setupTest(MobileLoginTests.java:53)
+]]></failure>
+    <system-out><![CDATA[Loaded properties for environment: qa
+Loaded user properties from: config/users.properties
+Loaded properties for environment: qa
+Loaded user properties from: config/users.properties
+]]></system-out>
+    <system-err><![CDATA[Warning: Property 'mobile.appActivity' not found in loaded configuration files.
+]]></system-err>
+  </testcase>
+  <testcase name="setupTest" classname="com.example.tests.mobile.MobileLoginTests" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="testInvalidMobileLogin" classname="com.example.tests.mobile.MobileLoginTests" time="0">
+    <skipped message="Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. &#10;Host info: host: &apos;devbox&apos;, ip: &apos;192.168.0.2&apos;&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.8.0&apos;, java.version: &apos;21.0.7&apos;&#10;Driver info: io.appium.java_client.AppiumDriver&#10;Command: [null, newSession {capabilities=[Capabilities {appPackage: src/test/resources/apps/and..., automationName: UiAutomator2 # For Android, deviceName: Android Emulator, fullReset: false, noReset: true, platformName: ANDROID}]}]&#10;Capabilities {appPackage: src/test/resources/apps/and..., automationName: UiAutomator2 # For Android, deviceName: Android Emulator, fullReset: false, noReset: true, platformName: ANDROID}"/>
+  </testcase>
+  <testcase name="teardownTest" classname="com.example.tests.mobile.MobileLoginTests" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="teardownTest" classname="com.example.tests.mobile.MobileLoginTests" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="testSuccessfulMobileLoginSuperAdmin" classname="com.example.tests.mobile.MobileLoginTests" time="0">
+    <skipped message="Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. &#10;Host info: host: &apos;devbox&apos;, ip: &apos;192.168.0.2&apos;&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.8.0&apos;, java.version: &apos;21.0.7&apos;&#10;Driver info: io.appium.java_client.AppiumDriver&#10;Command: [null, newSession {capabilities=[Capabilities {appPackage: src/test/resources/apps/and..., automationName: UiAutomator2 # For Android, deviceName: Android Emulator, fullReset: false, noReset: true, platformName: ANDROID}]}]&#10;Capabilities {appPackage: src/test/resources/apps/and..., automationName: UiAutomator2 # For Android, deviceName: Android Emulator, fullReset: false, noReset: true, platformName: ANDROID}"/>
+  </testcase>
+</testsuite>
