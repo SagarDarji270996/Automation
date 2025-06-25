@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example</groupId>
   <artifactId>automation-framework</artifactId>
@@ -10,12 +10,12 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <selenium.version>4.10.0</selenium.version>
-    <testng.version>7.7.1</testng.version>
-    <appium.version>8.5.1</appium.version>
-    <slf4j.version>2.0.7</slf4j.version>
+    <maven.compiler.source>24</maven.compiler.source>
+    <maven.compiler.target>24</maven.compiler.target>
+    <selenium.version>4.21.0</selenium.version>
+    <testng.version>7.10.2</testng.version>
+    <appium.version>9.3.0</appium.version>
+    <slf4j.version>2.0.13</slf4j.version>
   </properties>
 
   <dependencies>
